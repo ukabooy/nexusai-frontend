@@ -21,6 +21,14 @@
   .stat { text-align: center; }
   .stat-num { font-size: 36px; font-weight: bold; color: #00c88c; }
   .stat-label { font-size: 12px; color: #5a7a70; margin-top: 4px; }
+  .features { padding: 80px 32px; max-width: 1000px; margin: 0 auto; }
+  .features h2 { text-align: center; font-size: 32px; margin-bottom: 48px; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .feature { background: #0d1520; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 24px; }
+  .feature-icon { font-size: 28px; margin-bottom: 12px; }
+  .feature h3 { font-size: 16px; margin-bottom: 8px; }
+  .feature p { font-size: 13px; color: #5a7a70; margin: 0; }
+  .cta { text-align: center; padding: 80px 32px; background: linear-gradient(180deg, transparent, rgba(0,200,140,0.05)); }
   .status { position: fixed; bottom: 20px; right: 20px; background: rgba(0,200,140,0.1); border: 1px solid rgba(0,200,140,0.3); padding: 8px 16px; border-radius: 8px; font-size: 12px; color: #00c88c; }
   .dot { width: 8px; height: 8px; background: #00c88c; border-radius: 50%; display: inline-block; margin-right: 6px; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
@@ -30,22 +38,38 @@
 <nav class="nav">
   <div class="logo">NEXUS<span>AI</span></div>
   <div>
-    <a href="#" class="btn-outline">Login</a>
-    <a href="#" class="btn">Launch App</a>
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn">Get Started</a>
   </div>
 </nav>
 <div class="hero">
   <div class="badge">🟢 LIVE — AI Trading System v1.0</div>
   <h1>Trade Smarter.<br><span>Let AI Do the Work.</span></h1>
   <p>Institutional-grade AI analyzes forex, crypto and indices 24/7 — generating signals, managing risk, and executing trades automatically.</p>
-  <a href="#" class="btn">Start Free Trial →</a>
-  <a href="#" class="btn-outline">View Signals</a>
+  <a href="register.html" class="btn">Start Free Trial →</a>
+  <a href="login.html" class="btn-outline">Login</a>
 </div>
 <div class="stats">
   <div class="stat"><div class="stat-num">98.4%</div><div class="stat-label">Signal Accuracy</div></div>
   <div class="stat"><div class="stat-num">$2.8B+</div><div class="stat-label">Volume Traded</div></div>
   <div class="stat"><div class="stat-num">47K+</div><div class="stat-label">Active Traders</div></div>
   <div class="stat"><div class="stat-num">0.04s</div><div class="stat-label">Execution Speed</div></div>
+</div>
+<div class="features">
+  <h2>Everything You Need to Win</h2>
+  <div class="feature-grid">
+    <div class="feature"><div class="feature-icon">🧠</div><h3>AI Signal Engine</h3><p>Deep learning models generate high-confidence trade signals in real-time.</p></div>
+    <div class="feature"><div class="feature-icon">⚡</div><h3>Lightning Execution</h3><p>Sub-50ms trade execution across MT5, Binance, Bybit and Deriv.</p></div>
+    <div class="feature"><div class="feature-icon">🛡️</div><h3>Smart Risk Control</h3><p>Dynamic lot sizing, max drawdown protection and trailing stops built-in.</p></div>
+    <div class="feature"><div class="feature-icon">📊</div><h3>Live Analytics</h3><p>Interactive charts with custom indicators and multi-timeframe analysis.</p></div>
+    <div class="feature"><div class="feature-icon">🔁</div><h3>Copy Trading</h3><p>Follow top traders automatically with customizable risk settings.</p></div>
+    <div class="feature"><div class="feature-icon">📡</div><h3>Multi-Broker Support</h3><p>Connect to forex brokers, crypto exchanges through a unified API layer.</p></div>
+  </div>
+</div>
+<div class="cta">
+  <h2 style="font-size:36px;margin-bottom:16px;">Ready to Trade with AI?</h2>
+  <p style="margin-bottom:32px;">Join 47,000+ traders. No credit card required.</p>
+  <a href="register.html" class="btn">Get Started Free →</a>
 </div>
 <div class="status"><span class="dot"></span>Backend Live</div>
 <script>
