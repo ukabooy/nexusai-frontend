@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusAI — Login</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #080c10; color: #e8f4f0; font-family: monospace; display: flex; flex-direction: column; min-height: 100vh; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; border-bottom: 1px solid rgba(0,200,140,0.2); }
+  .logo { font-size: 20px; font-weight: bold; text-decoration: none; color: #e8f4f0; }
+  .logo span { color: #00c88c; }
+  .container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+  .card { background: #0d1520; border: 1px solid rgba(0,200,140,0.15); border-radius: 16px; padding: 40px; width: 100%; max-width: 420px; }
+  h2 { font-size: 24px; font-weight: bold; margin-bottom: 8px; }
+  .subtitle { color: #5a7a70; font-size: 13px; margin-bottom: 32px; }
+  .form-group { margin-bottom: 20px; }
+  label { display: block; font-size: 12px; color: #5a7a70; margin-bottom: 8px; }
+  input { width: 100%; background: #111d2e; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 16px; color: #e8f4f0; font-family: monospace; font-size: 14px; outline: none; transition: border 0.2s; }
+  input:focus { border-color: rgba(0,200,140,0.4); }
+  .btn { width: 100%; background: #00c88c; color: #000; border: none; padding: 14px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; font-family: monospace; margin-top: 8px; }
+  .btn:hover { background: #00e5a0; }
+  .divider { text-align: center; color: #5a7a70; font-size: 12px; margin: 20px 0; }
+  .link { color: #00c88c; text-decoration: none; }
+  .error { background: rgba(255,69,96,0.1); border: 1px solid rgba(255,69,96,0.3); color: #ff4560; padding: 12px; border-radius: 8px; font-size: 12px; margin-bottom: 16px; display: none; }
+  .success { background: rgba(0,200,140,0.1); border: 1px solid rgba(0,200,140,0.3); color: #00c88c; padding: 12px; border-radius: 8px; font-size: 12px; margin-bottom: 16px; display: none; }
+  .loading { opacity: 0.7; pointer-events: none; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="logo">NEXUS<span>AI</span></a>
+  <a href="register.html" style="color:#00c88c;font-size:13px;">Create Account</a>
+</nav>
+<div class="container">
+  <div class="card">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Login to your NexusAI account</p>
+    <div class="error" id="error"></div>
+    <div class="success" id="success"></div>
+    <div class="form-group">
+      <label>EMAIL ADDRESS</label>
+      <input type="email" id="email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label>PASSWORD</label>
+      <input type="password" id="password" placeholder="••••••••">
+    </div>
+    <button class="btn" onclick="login()">Login →</button>
+    <div class="divider">Don't have an account? <a href="register.html" class="link">Sign up free</a></div>
+  </div>
+</div>
+<script>
+  const API = 'https://ukaboy-nexusai-backend.hf.space';
+
+  async function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const btn = document.querySelector('.btn');
+    const error = document.getElementById('error');
+    const success = document.getElementById('success');
+
+    error.style.display = 'none';
+    success.style.display = 'none';
+
+    if (!email || !password) {
+      error.textContent = 'Please fill in all fields';
+      error.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = 'Logging in...';
+    btn.classList.add('loading');
+
+    try {
+      const res = await fetch(API + '/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem('nexusai_token', data.token);
+        localStorage.setItem('nexusai_user', JSON.stringify(data.user));
+        success.textContent = 'Login successful! Redirecting...';
+        success.style.display = 'block';
+        setTimeout(() => window.location.href = 'dashboard.html', 1500);
+      } else {
+        error.textContent = data.error || 'Login failed';
+        error.style.display = 'block';
+      }
+    } catch (err) {
+      error.textContent = 'Connection error. Please try again.';
+      error.style.display = 'block';
+    }
+
+    btn.textContent = 'Login →';
+    btn.classList.remove('loading');
+  }
+
+  document.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') login();
+  });
+</script>
+</body>
+</html>
