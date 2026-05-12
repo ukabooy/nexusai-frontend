@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusAI — Pricing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #080c10; color: #e8f4f0; font-family: monospace; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; border-bottom: 1px solid rgba(0,200,140,0.2); }
+  .logo { font-size: 20px; font-weight: bold; text-decoration: none; color: #e8f4f0; }
+  .logo span { color: #00c88c; }
+  .hero { text-align: center; padding: 60px 32px 40px; }
+  .hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 12px; }
+  .hero p { color: #5a7a70; font-size: 14px; }
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; padding: 0 32px 80px; }
+  .plan { background: #0d1520; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; position: relative; transition: all 0.3s; }
+  .plan:hover { border-color: rgba(0,200,140,0.3); transform: translateY(-4px); }
+  .plan.popular { border-color: #00c88c; transform: scale(1.03); }
+  .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #00c88c; color: #000; padding: 3px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .plan-name { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+  .plan-name.free { color: #5a7a70; }
+  .plan-name.basic { color: #60a5fa; }
+  .plan-name.pro { color: #00c88c; }
+  .plan-name.vip { color: #f5c518; }
+  .plan-price { font-size: 40px; font-weight: 800; margin: 16px 0 4px; }
+  .plan-period { font-size: 13px; color: #5a7a70; margin-bottom: 20px; }
+  .features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .features li { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: #5a7a70; }
+  .features li::before { content: "✓"; color: #00c88c; font-weight: 700; flex-shrink: 0; }
+  .features li.no::before { content: "✗"; color: #ff4560; }
+  .btn { width: 100%; padding: 13px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: monospace; transition: all 0.2s; }
+  .btn-green { background: #00c88c; color: #000; border: none; }
+  .btn-green:hover { background: #00e5a0; }
+  .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #e8f4f0; }
+  .btn-blue { background: transparent; border: 1px solid #60a5fa; color: #60a5fa; }
+  .btn-gold { background: transparent; border: 1px solid #f5c518; color: #f5c518; }
+  .faq { max-width: 700px; margin: 0 auto; padding: 0 32px 80px; }
+  .faq h2 { text-align: center; font-size: 28px; margin-bottom: 32px; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; cursor: pointer; font-size: 14px; font-weight: 600; background: none; border: none; color: #e8f4f0; width: 100%; font-family: monospace; text-align: left; }
+  .faq-a { font-size: 13px; color: #5a7a70; line-height: 1.7; padding-bottom: 18px; display: none; }
+  .faq-a.open { display: block; }
+  .guarantee { text-align: center; padding: 40px 32px; border-top: 1px solid rgba(255,255,255,0.05); }
+  .guarantee p { color: #5a7a70; font-size: 13px; max-width: 500px; margin: 8px auto 0; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="logo">NEXUS<span>AI</span></a>
+  <div style="display:flex;gap:12px">
+    <a href="login.html" style="color:#5a7a70;font-size:13px;text-decoration:none">Login</a>
+    <a href="register.html" style="background:#00c88c;color:#000;padding:6px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:700">Get Started</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Simple, Transparent Pricing</h1>
+  <p>Start free. Upgrade when you're ready to automate your trading.</p>
+</div>
+
+<div class="plans">
+
+  <!-- FREE -->
+  <div class="plan">
+    <div class="plan-name free">Free</div>
+    <div class="plan-price">$0</div>
+    <div class="plan-period">forever free</div>
+    <ul class="features">
+      <li>5 AI signals per day</li>
+      <li>BTC/USD market only</li>
+      <li>Basic dashboard</li>
+      <li>Live price feeds</li>
+      <li class="no">Auto-trading bot</li>
+      <li class="no">Copy trading</li>
+      <li class="no">Telegram alerts</li>
+      <li class="no">API access</li>
+    </ul>
+    <button class="btn btn-outline" onclick="window.location.href='register.html'">Get Started Free</button>
+  </div>
+
+  <!-- BASIC -->
+  <div class="plan">
+    <div class="plan-name basic">Basic</div>
+    <div class="plan-price">$29</div>
+    <div class="plan-period">per month</div>
+    <ul class="features">
+      <li>25 AI signals per day</li>
+      <li>5 markets</li>
+      <li>Full dashboard</li>
+      <li>Live price feeds</li>
+      <li>Trade journal</li>
+      <li>Email alerts</li>
+      <li class="no">Auto-trading bot</li>
+      <li class="no">Copy trading</li>
+    </ul>
+    <button class="btn btn-blue" onclick="selectPlan('basic')">Get Basic</button>
+  </div>
+
+  <!-- PRO -->
+  <div class="plan popular">
+    <div class="popular-badge">MOST POPULAR</div>
+    <div class="plan-name pro">Pro</div>
+    <div class="plan-price">$79</div>
+    <div class="plan-period">per month</div>
+    <ul class="features">
+      <li>Unlimited AI signals</li>
+      <li>All markets</li>
+      <li>Auto-trading bot</li>
+      <li>Telegram + Email alerts</li>
+      <li>Copy trading access</li>
+      <li>Backtesting engine</li>
+      <li>Priority support</li>
+      <li>API access</li>
+    </ul>
+    <button class="btn btn-green" onclick="selectPlan('pro')">Get Pro</button>
+  </div>
+
+  <!-- VIP -->
+  <div class="plan">
+    <div class="plan-name vip">VIP</div>
+    <div class="plan-price">$199</div>
+    <div class="plan-period">per month</div>
+    <ul class="features">
+      <li>Everything in Pro</li>
+      <li>Dedicated bot server</li>
+      <li>Custom strategies</li>
+      <li>1-on-1 onboarding</li>
+      <li>White-label option</li>
+      <li>SMS alerts</li>
+      <li>24/7 VIP support</li>
+      <li>Early access features</li>
+    </ul>
+    <button class="btn btn-gold" onclick="selectPlan('vip')">Get VIP</button>
+  </div>
+
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How does the AI generate signals? <span>+</span></button>
+    <div class="faq-a">Our AI uses RSI, MACD, EMA crossovers, Bollinger Bands and ATR to analyse markets and generate high-confidence signals with entry, stop loss and take profit levels.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Which brokers do you support? <span>+</span></button>
+    <div class="faq-a">We support Binance, Bybit, MT5, and Deriv. More brokers are added regularly.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is my money safe? <span>+</span></button>
+    <div class="faq-a">We never hold your funds. All trading happens in your own broker account. We only need API keys with trade permission — never withdrawal permission.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I cancel anytime? <span>+</span></button>
+    <div class="faq-a">Yes. Cancel anytime from your profile page. No hidden fees or long-term contracts.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Do you offer a free trial? <span>+</span></button>
+    <div class="faq-a">Yes! The Free plan is free forever. You can upgrade or downgrade at any time.</div>
+  </div>
+</div>
+
+<div class="guarantee">
+  <h2 style="font-size:20px;margin-bottom:8px">🛡️ 7-Day Money Back Guarantee</h2>
+  <p>Not satisfied? Get a full refund within 7 days — no questions asked. Payments via Stripe, PayPal, or Crypto.</p>
+</div>
+
+<script>
+function selectPlan(plan) {
+  const token = localStorage.getItem('nexusai_token');
+  if (!token) {
+    window.location.href = 'register.html';
+    return;
+  }
+  alert('Payment system coming soon! Your selected plan: ' + plan.toUpperCase() + '\n\nWe will notify you when payments are live.');
+}
+
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q span').forEach(s => s.textContent = '+');
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.querySelector('span').textContent = '−';
+  }
+}
+</script>
+</body>
+</html>
