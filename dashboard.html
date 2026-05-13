@@ -60,7 +60,6 @@
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="logo">NEXUS<span>AI</span></div>
   <div class="nav-right">
@@ -68,7 +67,6 @@
     <button class="logout" onclick="logout()">Logout</button>
   </div>
 </nav>
-
 <div class="main">
   <div class="sidebar">
     <button class="nav-item active" onclick="showPage('overview', this)"><span>📊</span> Overview</button>
@@ -79,16 +77,14 @@
     <button class="nav-item" onclick="window.location.href='pricing.html'"><span>💎</span> Upgrade</button>
     <button class="nav-item" onclick="showPage('profile', this)"><span>👤</span> Profile</button>
   </div>
-
   <div class="content">
 
     <!-- OVERVIEW -->
     <div class="page active" id="page-overview">
       <div class="greeting">
         <h1>Good evening, <span id="userName" style="color:#00c88c">Trader</span> 👋</h1>
-        <p id="dateTime">Loading...</p>
+        <p id="dateTime"></p>
       </div>
-
       <div class="upgrade-banner">
         <div>
           <div style="font-weight:700;font-size:13px">🚀 Upgrade to Pro</div>
@@ -96,35 +92,16 @@
         </div>
         <button class="upgrade-btn" onclick="window.location.href='pricing.html'">Upgrade →</button>
       </div>
-
       <div class="stats-grid">
-        <div class="stat-card">
-          <div class="label">BALANCE</div>
-          <div class="value">$24,840</div>
-          <div class="sub">+$1,121 today</div>
-        </div>
-        <div class="stat-card">
-          <div class="label">DAILY P&L</div>
-          <div class="value" style="color:#00c88c">+$1,121</div>
-          <div class="sub">6 trades closed</div>
-        </div>
-        <div class="stat-card">
-          <div class="label">WIN RATE</div>
-          <div class="value" style="color:#f5c518">91.4%</div>
-          <div class="sub">32 of 35 trades</div>
-        </div>
-        <div class="stat-card">
-          <div class="label">OPEN TRADES</div>
-          <div class="value" style="color:#60a5fa">2</div>
-          <div class="sub">$160 floating</div>
-        </div>
+        <div class="stat-card"><div class="label">BALANCE</div><div class="value">$24,840</div><div class="sub">+$1,121 today</div></div>
+        <div class="stat-card"><div class="label">DAILY P&L</div><div class="value" style="color:#00c88c">+$1,121</div><div class="sub">6 trades closed</div></div>
+        <div class="stat-card"><div class="label">WIN RATE</div><div class="value" style="color:#f5c518">91.4%</div><div class="sub">32 of 35 trades</div></div>
+        <div class="stat-card"><div class="label">OPEN TRADES</div><div class="value" style="color:#60a5fa">2</div><div class="sub">$160 floating</div></div>
       </div>
-
       <div class="section">
         <div class="section-title">Live Prices <span class="badge" id="priceStatus">LOADING</span></div>
         <div id="prices">Loading prices...</div>
       </div>
-
       <div class="section">
         <div class="section-title">Recent Trades</div>
         <table>
@@ -185,7 +162,7 @@
 
     <!-- MARKETS -->
     <div class="page" id="page-markets">
-      <div class="greeting"><h1>Markets 📈</h1><p>Live market prices updated every 30 seconds</p></div>
+      <div class="greeting"><h1>Markets 📈</h1><p>Live market prices</p></div>
       <div class="section">
         <div class="section-title">Crypto Prices <span class="badge">LIVE</span></div>
         <div id="marketPrices">Loading...</div>
@@ -214,31 +191,19 @@
       <div class="greeting"><h1>Trading Bot 🤖</h1><p>Configure and control your AI trading bot</p></div>
       <div class="section">
         <div class="bot-status">
-          <div>
-            <div style="font-weight:700;margin-bottom:4px">Auto Trading Bot</div>
-            <div style="font-size:12px;color:#5a7a70">Scans markets every 60 seconds</div>
-          </div>
+          <div><div style="font-weight:700;margin-bottom:4px">Auto Trading Bot</div><div style="font-size:12px;color:#5a7a70">Scans markets every 60 seconds</div></div>
           <div class="toggle" id="botToggle" onclick="toggleBot()"></div>
         </div>
         <div class="bot-status">
-          <div>
-            <div style="font-weight:700;margin-bottom:4px">Session Filter</div>
-            <div style="font-size:12px;color:#5a7a70">London + New York sessions only</div>
-          </div>
+          <div><div style="font-weight:700;margin-bottom:4px">Session Filter</div><div style="font-size:12px;color:#5a7a70">London + New York sessions only</div></div>
           <div class="toggle on"></div>
         </div>
         <div class="bot-status">
-          <div>
-            <div style="font-weight:700;margin-bottom:4px">News Filter</div>
-            <div style="font-size:12px;color:#5a7a70">Avoid high-impact news events</div>
-          </div>
+          <div><div style="font-weight:700;margin-bottom:4px">News Filter</div><div style="font-size:12px;color:#5a7a70">Avoid high-impact news events</div></div>
           <div class="toggle on"></div>
         </div>
         <div class="bot-status">
-          <div>
-            <div style="font-weight:700;margin-bottom:4px">Risk Per Trade</div>
-            <div style="font-size:12px;color:#5a7a70">Maximum loss per trade</div>
-          </div>
+          <div><div style="font-weight:700;margin-bottom:4px">Risk Per Trade</div><div style="font-size:12px;color:#5a7a70">Maximum loss per trade</div></div>
           <div style="color:#00c88c;font-weight:700">1%</div>
         </div>
         <div style="margin-top:16px;padding:16px;background:rgba(0,200,140,0.05);border-radius:8px;border:1px solid rgba(0,200,140,0.2)">
@@ -253,22 +218,10 @@
       <div class="greeting"><h1>Profile 👤</h1><p>Your account details</p></div>
       <div class="section">
         <div style="display:flex;flex-direction:column;gap:16px">
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px">
-            <span style="color:#5a7a70">Username</span>
-            <span id="profileUsername">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px">
-            <span style="color:#5a7a70">Email</span>
-            <span id="profileEmail">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px">
-            <span style="color:#5a7a70">Plan</span>
-            <span style="color:#00c88c;text-transform:uppercase" id="profilePlan">Free</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:13px">
-            <span style="color:#5a7a70">Member Since</span>
-            <span>May 2026</span>
-          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px"><span style="color:#5a7a70">Username</span><span id="profileUsername">—</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px"><span style="color:#5a7a70">Email</span><span id="profileEmail">—</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:13px"><span style="color:#5a7a70">Plan</span><span style="color:#00c88c;text-transform:uppercase" id="profilePlan">Free</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:13px"><span style="color:#5a7a70">Member Since</span><span>May 2026</span></div>
         </div>
         <button onclick="window.location.href='pricing.html'" style="width:100%;background:rgba(0,200,140,0.1);color:#00c88c;border:1px solid rgba(0,200,140,0.3);padding:12px;border-radius:8px;cursor:pointer;font-family:monospace;font-size:13px;margin-top:16px;font-weight:700">💎 Upgrade Plan</button>
         <button onclick="logout()" style="width:100%;background:rgba(255,69,96,0.1);color:#ff4560;border:1px solid rgba(255,69,96,0.3);padding:12px;border-radius:8px;cursor:pointer;font-family:monospace;font-size:13px;margin-top:10px">Logout</button>
@@ -292,7 +245,7 @@ document.getElementById('profileEmail').textContent = user.email || '—';
 document.getElementById('profilePlan').textContent = user.plan || 'free';
 
 const now = new Date();
-document.getElementById('dateTime').textContent = now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' }) + ' — London Session';
+document.getElementById('dateTime').textContent = now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
 
 function showPage(page, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -318,30 +271,27 @@ async function loadPrices(targetId) {
   const target = document.getElementById(targetId || 'prices');
   const statusEl = document.getElementById('priceStatus');
   try {
-    const symbols = ['BTCUSDT','ETHUSDT','SOLUSDT','BNBUSDT'];
-    const names = { BTCUSDT:'BTC/USD', ETHUSDT:'ETH/USD', SOLUSDT:'SOL/USD', BNBUSDT:'BNB/USD' };
-    const responses = await Promise.all(
-      symbols.map(s => fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${s}`).then(r => r.json()))
-    );
-    const html = responses.map(t => {
-      const chg = parseFloat(t.priceChangePercent);
+    const res = await fetch(API + '/api/markets/prices');
+    const data = await res.json();
+    const html = data.prices.map(t => {
+      const chg = t.change || 0;
       return `<div class="price-item">
-        <span style="font-weight:700">${names[t.symbol]}</span>
-        <span>$${parseFloat(t.lastPrice).toLocaleString()}</span>
+        <span style="font-weight:700">${t.symbol}</span>
+        <span>$${t.price.toLocaleString()}</span>
         <span class="${chg>=0?'price-up':'price-down'}">${chg>=0?'+':''}${chg.toFixed(2)}%</span>
       </div>`;
     }).join('');
     target.innerHTML = html;
     if (statusEl) { statusEl.textContent = 'LIVE'; statusEl.style.color = '#00c88c'; }
   } catch(e) {
-    target.innerHTML = '<p style="color:#5a7a70;font-size:12px;padding:8px 0">⚠️ Could not load live prices. Retrying...</p>';
+    target.innerHTML = '<p style="color:#5a7a70;font-size:12px;padding:8px 0">⚠️ Could not load prices. Retrying...</p>';
     if (statusEl) { statusEl.textContent = 'OFFLINE'; statusEl.style.color = '#ff4560'; }
     setTimeout(() => loadPrices(targetId), 10000);
   }
 }
 
 loadPrices('prices');
-setInterval(() => loadPrices('prices'), 30000);
+setInterval(() => loadPrices('prices'), 60000);
 </script>
 </body>
 </html>
